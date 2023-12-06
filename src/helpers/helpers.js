@@ -1,5 +1,5 @@
-import TurndownService from "turndown";
-//const TurndownService = require('turndown').default;
+//import TurndownService from "turndown";
+const TurndownService = require('turndown').default;
 
 const turndownService = new TurndownService();
 
