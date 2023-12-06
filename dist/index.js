@@ -17,13 +17,6 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
-  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
-}) : x)(function(x) {
-  if (typeof require !== "undefined")
-    return require.apply(this, arguments);
-  throw Error('Dynamic require of "' + x + '" is not supported');
-});
 
 // src/helpers/editorjs-md-importer.js
 import { fromMarkdown } from "mdast-util-from-markdown";
@@ -31,7 +24,7 @@ import { gfm } from "micromark-extension-gfm";
 import { gfmFromMarkdown } from "mdast-util-gfm";
 
 // src/helpers/helpers.js
-var TurndownService = __require("turndown").default;
+import TurndownService from "turndown";
 var turndownService = new TurndownService();
 var parseHtmlToMarkdownHelper = (html) => {
   return turndownService.turndown(html);

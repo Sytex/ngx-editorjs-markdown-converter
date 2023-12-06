@@ -61,8 +61,8 @@ var import_micromark_extension_gfm = require("micromark-extension-gfm");
 var import_mdast_util_gfm = require("mdast-util-gfm");
 
 // src/helpers/helpers.js
-var TurndownService = require("turndown").default;
-var turndownService = new TurndownService();
+var import_turndown = __toESM(require("turndown"), 1);
+var turndownService = new import_turndown.default();
 var parseHtmlToMarkdownHelper = (html) => {
   return turndownService.turndown(html);
 };
