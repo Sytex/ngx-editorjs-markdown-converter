@@ -1,10 +1,7 @@
-//import TurndownService from "turndown";
-const TurndownService = require('turndown').default;
-
-const turndownService = new TurndownService();
+import { NodeHtmlMarkdown } from 'node-html-markdown'
 
 export const parseHtmlToMarkdownHelper = (html) => {
-  return turndownService.turndown(html);
+  return  NodeHtmlMarkdown.translate(html);
 };
 
 export const parseRemarkToEditorjs = (remarkBlock) => {
