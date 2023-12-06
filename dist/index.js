@@ -24,9 +24,9 @@ import { gfm } from "micromark-extension-gfm";
 import { gfmFromMarkdown } from "mdast-util-gfm";
 
 // src/helpers/helpers.js
-import { NodeHtmlMarkdown } from "node-html-markdown";
+import html2md from "html-to-md";
 var parseHtmlToMarkdownHelper = (html) => {
-  return NodeHtmlMarkdown.translate(html);
+  return html2md(html);
 };
 var parseRemarkToEditorjs = (remarkBlock) => {
   if (remarkBlock.children) {

@@ -1,7 +1,7 @@
-import { NodeHtmlMarkdown } from 'node-html-markdown'
+import html2md from 'html-to-md'
 
 export const parseHtmlToMarkdownHelper = (html) => {
-  return  NodeHtmlMarkdown.translate(html);
+  return  html2md(html);
 };
 
 export const parseRemarkToEditorjs = (remarkBlock) => {

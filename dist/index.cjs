@@ -61,9 +61,9 @@ var import_micromark_extension_gfm = require("micromark-extension-gfm");
 var import_mdast_util_gfm = require("mdast-util-gfm");
 
 // src/helpers/helpers.js
-var import_node_html_markdown = require("node-html-markdown");
+var import_html_to_md = __toESM(require("html-to-md"), 1);
 var parseHtmlToMarkdownHelper = (html) => {
-  return import_node_html_markdown.NodeHtmlMarkdown.translate(html);
+  return (0, import_html_to_md.default)(html);
 };
 var parseRemarkToEditorjs = (remarkBlock) => {
   if (remarkBlock.children) {
