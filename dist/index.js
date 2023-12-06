@@ -1,3 +1,22 @@
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
   get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
 }) : x)(function(x) {
@@ -141,21 +160,20 @@ var parseMarkdownToList = function(blocks) {
     return group;
   };
   const getUpdatedBlock = (prevGroup, actualItem) => {
-    const updatedData = {
-      ...prevGroup.data,
+    const updatedData = __spreadProps(__spreadValues({}, prevGroup.data), {
       items: [...prevGroup.data.items, actualItem]
-    };
-    const updatedCurrent = {
-      ...prevGroup,
+    });
+    const updatedCurrent = __spreadProps(__spreadValues({}, prevGroup), {
       data: updatedData
-    };
+    });
     return updatedCurrent;
   };
   const getLists = (blocks2) => {
     return blocks2.children.reduce((prev, actualItem) => {
+      var _a;
       const prevGroup = getLastItem(prev);
       const prevIndex = prev.length > 0 ? prev.length - 1 : 0;
-      const prevLength = prev?.length ?? 0;
+      const prevLength = (_a = prev == null ? void 0 : prev.length) != null ? _a : 0;
       let prevItem = null;
       if (prevLength > 0) {
         prevItem = getLastItem(prev[prevIndex].data.items);
@@ -176,8 +194,8 @@ var parseMarkdownToList = function(blocks) {
         const items = list2.data.items.map((item) => {
           return getItemListValue(item.children);
         });
-        const data2 = { ...list2.data, items };
-        return { ...list2, data: data2 };
+        const data2 = __spreadProps(__spreadValues({}, list2.data), { items });
+        return __spreadProps(__spreadValues({}, list2), { data: data2 });
       }
       const checkboxes = list2.data.items.map((item) => {
         return {
@@ -185,8 +203,8 @@ var parseMarkdownToList = function(blocks) {
           text: getItemListValue(item.children)
         };
       });
-      const data = { ...list2.data, items: checkboxes };
-      return { ...list2, data };
+      const data = __spreadProps(__spreadValues({}, list2.data), { items: checkboxes });
+      return __spreadProps(__spreadValues({}, list2), { data });
     });
   };
   const listHasChanged = (prevItem, currItem) => {
