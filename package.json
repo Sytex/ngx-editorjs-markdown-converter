@@ -1,6 +1,6 @@
 {
   "name": "ngx-editorjs-markdown-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a module to convert editorjs to md",
   "main": "dist/index.js",
   "module": "dist/index.cjs",
